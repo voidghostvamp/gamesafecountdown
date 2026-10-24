@@ -1,4 +1,3 @@
-```javascript
 const launchDate = new Date("2027-02-01T00:00:00+05:30").getTime();
 
 function updateCountdown() {
