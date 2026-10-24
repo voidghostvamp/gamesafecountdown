@@ -1,54 +1,48 @@
 ```javascript
-// GameSafe Launch Countdown
-// Launch date: February 1, 2027, 12:00 AM IST
-
 const launchDate = new Date("2027-02-01T00:00:00+05:30").getTime();
-
-const daysElement = document.getElementById("days");
-const hoursElement = document.getElementById("hours");
-const minutesElement = document.getElementById("minutes");
-const secondsElement = document.getElementById("seconds");
-
-const countdown = document.querySelector(".countdown");
-const launchDateElement = document.querySelector(".launch-date");
 
 function updateCountdown() {
     const now = Date.now();
-    const difference = launchDate - now;
+    const remaining = launchDate - now;
 
-    if (difference <= 0) {
-        daysElement.textContent = "000";
-        hoursElement.textContent = "00";
-        minutesElement.textContent = "00";
-        secondsElement.textContent = "00";
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
-        countdown.innerHTML = `
-            <div class="time-box launch-complete">
-                <span>WE'RE LIVE!</span>
-            </div>
-        `;
-
-        launchDateElement.textContent = "GAME SAFE LAUNCH DAY";
-        clearInterval(countdownInterval);
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
+        console.error("Countdown elements are missing from index.html");
         return;
     }
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-    );
-    const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-    );
-    const seconds = Math.floor(
-        (difference / 1000) % 60
-    );
+    if (remaining <= 0) {
+        daysEl.textContent = "000";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        return;
+    }
 
-    daysElement.textContent = String(days).padStart(3, "0");
-    hoursElement.textContent = String(hours).padStart(2, "0");
-    minutesElement.textContent = String(minutes).padStart(2, "0");
-    secondsElement.textContent = String(seconds).padStart(2, "0");
+    daysEl.textContent = String(
+        Math.floor(remaining / 86400000)
+    ).padStart(3, "0");
+
+    hoursEl.textContent = String(
+        Math.floor((remaining / 3600000) % 24)
+    ).padStart(2, "0");
+
+    minutesEl.textContent = String(
+        Math.floor((remaining / 60000) % 60)
+    ).padStart(2, "0");
+
+    secondsEl.textContent = String(
+        Math.floor((remaining / 1000) % 60)
+    ).padStart(2, "0");
 }
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+```
 
 updateCountdown();
 
