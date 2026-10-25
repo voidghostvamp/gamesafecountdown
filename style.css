@@ -403,3 +403,54 @@ footer {
     }
 }
 ```
+/* Improve text readability on mobile */
+body {
+    color: #f8f7ff;
+}
+
+.eyebrow,
+.description,
+.launch-date,
+.bottom-note,
+footer {
+    color: #d2cde8;
+}
+
+.countdown .time-box span {
+    color: #ffffff;
+}
+
+.countdown .time-box small {
+    color: #c9c2e5;
+}
+
+.brand {
+    color: #ffffff;
+}
+
+.status {
+    color: #e0d8ff;
+}
+
+/* Keep text crisp on smaller screens */
+@media (max-width: 600px) {
+    .hero h1 {
+        color: #ffffff;
+    }
+
+    .hero h1 span {
+        color: #c4a1ff;
+    }
+
+    .description,
+    .launch-date,
+    .bottom-note,
+    footer {
+        color: #e2def2;
+    }
+
+    .countdown .time-box {
+        background: #171522;
+        border-color: #49405f;
+    }
+}
