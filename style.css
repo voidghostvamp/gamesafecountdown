@@ -454,3 +454,58 @@ footer {
         border-color: #49405f;
     }
 }
+
+/* Darker, softer countdown text */
+.eyebrow {
+    color: #77718f;
+}
+
+.description {
+    color: #aaa4bf;
+}
+
+.launch-date {
+    color: #a99acb;
+}
+
+.bottom-note,
+footer {
+    color: #716b83;
+}
+
+.status {
+    color: #a99bc9;
+}
+
+.countdown .time-box {
+    background: #0d0c14;
+    border-color: #252033;
+}
+
+.countdown .time-box span {
+    color: #d5c9f5;
+}
+
+.countdown .time-box small {
+    color: #827995;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        color: #e5e0f2;
+    }
+
+    .hero h1 span {
+        color: #a98ae8;
+    }
+
+    .description,
+    .launch-date {
+        color: #aaa2c0;
+    }
+
+    .bottom-note,
+    footer {
+        color: #777086;
+    }
+}
